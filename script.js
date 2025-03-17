@@ -1,11 +1,12 @@
-
 if (window.location.protocol !== "file:") {
-    const onlinecountws = new WebSocket("ws://localhost:8080");
-    let ws = new WebSocket("ws://localhost:8080");
-} else {
-    console.warn("WebSockets are disabled in file:// mode.");
+    console.warn("WebSockets are not enabled for file:// mode.");
 }
-window.open("https://blooketbot.vercel.app/"):null;localStorage.setItem("seendomain",!0);}
+
+// ✅ Open the BlooketBot link only if needed
+if (!localStorage.getItem("seendomain")) {
+    window.open("https://blooketbot.vercel.app/");
+    localStorage.setItem("seendomain", true);
+}
 
 const hitler = "1#0#1#0#1$3#0#0#1#6#0#0$0";
 var blooks = [
