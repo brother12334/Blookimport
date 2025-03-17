@@ -1,29 +1,3 @@
-// ✅ Expose functions globally so they can be accessed in HTML
-window.joinGame = joinGame;
-window.setUserVal = setUserVal;
-window.setTeamVal = setTeamVal;
-window.setVal = setVal;
-window.leaveGame = leaveGame;
-window.renderCheats = renderCheats;
-window.finishG = finishG;
-window.createButton = createButton;
-window.createSel = createSel;
-window.createInp = createInp;
-window.createStaticSel = createStaticSel;
-window.createGlobalContainer = createGlobalContainer;
-window.activateAuto = activateAuto;
-window.makeLongText = makeLongText;
-window.genCursed = genCursed;
-window.onUpdateData = onUpdateData;
-window.onFirstData = onFirstData;
-window.onData = onData;
-window.procData = procData;
-window.sendChatMsg = sendChatMsg;
-window.handleChat = handleChat;
-window.onChat = onChat;
-window.connect = connect;
-window.getTime = getTime;
-window.cheats = cheats;
 
 if (window.location.protocol !== "file:") {
     const onlinecountws = new WebSocket("ws://localhost:8080");
@@ -2599,4 +2573,32 @@ function system_message(message, code) {
   system_message_container.appendChild(system_message_text);
 
   chat.appendChild(system_message_container);
+    // ✅ Attach functions to window AFTER they are defined
+
+    window.joinGame = joinGame;
+window.setUserVal = setUserVal;
+window.setTeamVal = setTeamVal;
+window.setVal = setVal;
+window.leaveGame = leaveGame;
+window.renderCheats = renderCheats;
+window.finishG = finishG;
+window.createButton = createButton;
+window.createSel = createSel;
+window.createInp = createInp;
+window.createStaticSel = createStaticSel;
+window.createGlobalContainer = createGlobalContainer;
+window.activateAuto = activateAuto;
+window.makeLongText = makeLongText;
+window.genCursed = genCursed;
+window.onUpdateData = onUpdateData;
+window.onFirstData = onFirstData;
+window.onData = onData;
+window.procData = procData;
+window.sendChatMsg = sendChatMsg;
+window.handleChat = handleChat;
+window.onChat = onChat;
+window.connect = connect;
+window.getTime = getTime;
+window.cheats = cheats;
+
 }
