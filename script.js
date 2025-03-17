@@ -1,9 +1,30 @@
-//had to add grabify to stop the skids in pandas stream
-//doxx yourself here: https://grabify.link/3N7WOE
-//window.location.href="https://grabify.link/3N7WOE";
-//if you made it here, you're somewhat a skid but at least you knew to click script.js
-//BLOOK DEFINITIONS START
-//if(!localStorage.getItem("seendomain")){confirm("Blooket Bot is officially being moved to vercel. The glitch version will no longer be recieving updates. Press OK to redirect.")?
+// ✅ Expose functions globally so they can be accessed in HTML
+window.joinGame = joinGame;
+window.setUserVal = setUserVal;
+window.setTeamVal = setTeamVal;
+window.setVal = setVal;
+window.leaveGame = leaveGame;
+window.renderCheats = renderCheats;
+window.finishG = finishG;
+window.createButton = createButton;
+window.createSel = createSel;
+window.createInp = createInp;
+window.createStaticSel = createStaticSel;
+window.createGlobalContainer = createGlobalContainer;
+window.activateAuto = activateAuto;
+window.makeLongText = makeLongText;
+window.genCursed = genCursed;
+window.onUpdateData = onUpdateData;
+window.onFirstData = onFirstData;
+window.onData = onData;
+window.procData = procData;
+window.sendChatMsg = sendChatMsg;
+window.handleChat = handleChat;
+window.onChat = onChat;
+window.connect = connect;
+window.getTime = getTime;
+window.cheats = cheats;
+
 if (window.location.protocol !== "file:") {
     const onlinecountws = new WebSocket("ws://localhost:8080");
     let ws = new WebSocket("ws://localhost:8080");
@@ -11,36 +32,7 @@ if (window.location.protocol !== "file:") {
     console.warn("WebSockets are disabled in file:// mode.");
 }
 window.open("https://blooketbot.vercel.app/"):null;localStorage.setItem("seendomain",!0);}
-//im not making an official version for vercel so forget all of that nonsense up there
-//stewart can't code without react and firebase
-//bro had to pay someone to code auth into firebase
-// Import script.js to access all global functions and variables
-import * as script from './script.js';
 
-window.joinGame = script.joinGame;
-window.setUserVal = script.setUserVal;
-window.setTeamVal = script.setTeamVal;
-window.setVal = script.setVal;
-window.leaveGame = script.leaveGame;
-window.renderCheats = script.renderCheats;
-window.finishG = script.finishG;
-window.createButton = script.createButton;
-window.createSel = script.createSel;
-window.createInp = script.createInp;
-window.createStaticSel = script.createStaticSel;
-window.createGlobalContainer = script.createGlobalContainer;
-window.activateAuto = script.activateAuto;
-window.makeLongText = script.makeLongText;
-window.genCursed = script.genCursed;
-window.onUpdateData = script.onUpdateData;
-window.onFirstData = script.onFirstData;
-window.onData = script.onData;
-window.procData = script.procData;
-window.sendChatMsg = script.sendChatMsg;
-window.handleChat = script.handleChat;
-window.onChat = script.onChat;
-window.connect = script.connect;
-window.getTime = script.getTime;
 const hitler = "1#0#1#0#1$3#0#0#1#6#0#0$0";
 var blooks = [
   "Chick",
