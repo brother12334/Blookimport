@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blooket Bot Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2e;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffcc00;
+        }
+        .container {
+            background: #2a2a3b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 50%;
+            margin: 20px auto;
+        }
+        input, button, select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+            background: #333;
+            color: white;
+            box-sizing: border-box;
+        }
+        button {
+            background: #ffcc00;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s ease-in-out;
+        }
+        button:hover {
+            background: #e6b800;
+        }
+        .log {
+            background: black;
+            padding: 10px;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: scroll;
+            font-size: 14px;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🔥 Blooket Bot Interface 🔥</h1>
+
+<div class="container">
+    <!-- Game Code Input -->
+    <p>Enter Game Code:</p>
+    <input type="text" id="gameCode" placeholder="7-digit game code">
+
+    <!-- Bot Name Input -->
+    <p>Enter Bot Name:</p>
+    <input type="text" id="botName" placeholder="Example: BlookBot">
+
+    <!-- ✅ Join Button -->
+    <button onclick="joinGameHandler()">🚀 Join Game</button>
+
+    <!-- 🎮 Cheat Buttons (Generated Dynamically) -->
+    <div id="cheatButtons"></div>
+
+    <!-- 📃 Log Output -->
+    <h3>Status:</h3>
+    <div class="log" id="log">Waiting for input...</div>
+</div>
+
+<!-- ✅ Link to script.js -->
+<script type="module" src="./script.js"></script>
+<script>
+    async function joinGameHandler() {
+        const gameCode = document.getElementById('gameCode').value.trim();
+        const botName = document.getElementById('botName').value.trim();
+
+        if (!gameCode || gameCode.length !== 7) {
+            log('❌ Invalid game code!');
+            return;
+        }
+        if (!botName) {
+            log('❌ Please enter a bot name!');
+            return;
+        }
+
+        try {
+            // ✅ Join the game using the function from script.js
+            await joinGame(gameCode, botName, false);
+            log(`✅ Joined game ${gameCode} as ${botName}`);
+
+            // 🔥 Detect game mode and load cheats
+            const gameMode = getGameMode();
+            log(`🎯 Detected Game Mode: ${gameMode}`);
+            loadCheatsForGameMode(gameMode);
+        } catch (error) {
+            log(`❌ Error joining game: ${error.message}`);
+        }
+    }
+
+    function loadCheatsForGameMode(gameMode) {
+        const cheatContainer = document.getElementById('cheatButtons');
+        cheatContainer.innerHTML = ''; // Clear previous cheats
+
+        if (!cheats[gameMode]) {
+            log(`❌ No cheats available for game mode: ${gameMode}`);
+            return;
+        }
+
+        // ✅ Dynamically create buttons for each cheat
+        cheats[gameMode].forEach(cheat => {
+            const button = document.createElement('button');
+            button.textContent = cheat.name;
+            button.onclick = () => cheat.action(button);
+            cheatContainer.appendChild(button);
+        });
+    }
+
+    function log(message) {
+        const logBox = document.getElementById('log');
+        logBox.innerHTML += `<p>${message}</p>`;
+        logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    // ✅ Example functions tied to window (from script.js)
+    window.loadCheatsForGameMode = loadCheatsForGameMode;
+</script>
+
+</body>
+</html>
